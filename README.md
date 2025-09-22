@@ -23,11 +23,11 @@ l,u &\in \mathbb{R}^m &&: \text{Lower and upper limit（could be } \pm \infty \t
 \end{aligned}
 $$
 
-Further derivation is written in.
+Further derivation is written [here](https://github.com/Vincentive1232/micro_qp/blob/main/Math_Induction.md).
 
 
 ## 2. Algorithm-Flow
-`micro_qp` is based on ADMM 3-steps iteration. The algorithm is discussed in detail in [].
+`micro_qp` is based on ADMM 3-steps iteration. The algorithm is described in detail [here](https://github.com/Vincentive1232/micro_qp/blob/main/Algorithm_Description.md).
 
 
 ## 3. How to use `micro_qp`
