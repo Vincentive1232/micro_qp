@@ -1,6 +1,10 @@
+/* Alternating Direction Method of Multipliers */
+
 use crate::types::{VecN, MatMN};
 use crate::math::{a_mul_x, at_mul_v, form_p, cholesky_in_place, chol_solve, norm_inf};
 
+
+#[derive(Debug, Clone, Copy)]
 pub struct AdmmSettings {
     pub rho: f32,
     pub eps_pri: f32,
@@ -16,7 +20,7 @@ pub struct AdmmSettings {
     pub adapt_interval: usize,
 }
 
-pub struct Solver<const N: usize, const M: usize> {
+pub struct AdmmSolver<const N: usize, const M: usize> {
     pub h: MatMN<N, N>,
     pub a: MatMN<M, N>,
     pub p: MatMN<N, N>,
@@ -33,7 +37,7 @@ pub struct Solver<const N: usize, const M: usize> {
     pub settings: AdmmSettings,
 }
 
-impl<const N: usize, const M: usize> Solver<N, M> {
+impl<const N: usize, const M: usize> AdmmSolver<N, M> {
     pub fn new() -> Self {
         Self {
             h: MatMN::zero(), a: MatMN::zero(), p: MatMN::zero(),

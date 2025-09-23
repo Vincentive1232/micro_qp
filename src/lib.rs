@@ -4,3 +4,4 @@
 pub mod types;
 pub mod math;
 pub mod admm;
+pub mod ipm;

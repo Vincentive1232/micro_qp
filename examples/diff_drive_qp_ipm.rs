@@ -5,10 +5,11 @@ to solve a differential drive vehicle control problem
 #![allow(non_snake_case)]
 
 use micro_qp::types::{MatMN, VecN};
-use micro_qp::admm::{Solver, AdmmSettings};
+use micro_qp::ipm::{IpmSolver};
 
 const N: usize = 2; // decision variables: [ur, ul]
 const M: usize = 2; // constraints: box constraints
+const P: usize = 4;
 
 fn build_problem(
     r: f32,  // wheel radius [m]
@@ -76,20 +77,7 @@ fn main() {
     );
 
     // ===== construct and configure the solver =====
-    let mut solver = Solver::<N,M>::new();
-    solver.settings = AdmmSettings {
-        rho: 0.1,
-        eps_pri: 1e-5,
-        eps_dual: 1e-5,
-        max_iter: 200,
-        sigma: 1e-9,
-        mu: 10.0,
-        tau_inc: 2.0,
-        tau_dec: 2.0,
-        rho_min: 1e-6,
-        rho_max: 1e6,
-        adapt_interval: 25,
-    };
+    let mut solver = IpmSolver::<N,M,P>::new();
 
     assert!(solver.prepare(&H, &A));
 
