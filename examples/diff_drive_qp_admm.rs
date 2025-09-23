@@ -1,5 +1,5 @@
 /*
-This is an example of using micro_qp 
+This is an example of using micro_qp admm
 to solve a differential drive vehicle control problem
 */
 #![allow(non_snake_case)]
@@ -79,9 +79,9 @@ fn main() {
     let mut solver = AdmmSolver::<N,M>::new();
     solver.settings = AdmmSettings {
         rho: 0.01,
-        eps_pri: 1e-5,
-        eps_dual: 1e-5,
-        max_iter: 200,
+        eps_pri: 1e-7,
+        eps_dual: 1e-7,
+        max_iter: 300,
         sigma: 1e-9,
         mu: 10.0,
         tau_inc: 2.0,

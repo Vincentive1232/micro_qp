@@ -20,6 +20,7 @@ pub struct AdmmSettings {
     pub adapt_interval: usize,
 }
 
+#[derive(Debug)]
 pub struct AdmmSolver<const N: usize, const M: usize> {
     pub h: MatMN<N, N>,
     pub a: MatMN<M, N>,
@@ -44,7 +45,7 @@ impl<const N: usize, const M: usize> AdmmSolver<N, M> {
             x: VecN::zero(), z: VecN::zero(), y: VecN::zero(),
             ax: VecN::zero(), rhs: VecN::zero(), tmp_m: VecN::zero(), tmp_n: VecN::zero(), z_prev: VecN::zero(),
             settings: AdmmSettings { 
-                rho: 0.1, eps_pri: 1e-3, eps_dual: 1e-3, max_iter: 200, sigma: 1e-6, 
+                rho: 0.01, eps_pri: 1e-6, eps_dual: 1e-6, max_iter: 300, sigma: 1e-6, 
                 mu: 10.0, tau_inc: 2.0, tau_dec: 2.0, rho_min: 1e-6, rho_max: 1e6, adapt_interval: 25 }
         }
     }

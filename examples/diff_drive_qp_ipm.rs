@@ -1,5 +1,5 @@
 /*
-This is an example of using micro_qp 
+This is an example of using micro_qp ipm
 to solve a differential drive vehicle control problem
 */
 #![allow(non_snake_case)]

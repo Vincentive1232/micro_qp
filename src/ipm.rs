@@ -30,6 +30,7 @@ impl IpmSettings {
     }
 }
 
+#[derive(Debug)]
 pub struct IpmSolver<const N: usize, const M: usize, const P: usize> {
     // P = 2*M
     pub x: VecN<N>,
