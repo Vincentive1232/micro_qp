@@ -1,6 +1,6 @@
-# micro_qp — A Lightweight ADMM-based QP Solver for Embedded Systems
+# micro_qp — A Lightweight QP Solver for Embedded Systems
 
-`micro_qp` is a light-weight quadratic programming solver based on **ADMM (Alternating Direction Method of Multipliers)**. It is capable for solving convex QP with linear constraints on platforms with tight computational budget, e.g. STM32, RP2040 etc.
+`micro_qp` is a light-weight quadratic programming solver based on **ADMM (Alternating Direction Method of Multipliers)** and **IPM(Interior Point Method)**. It is capable for solving convex QP with linear constraints on platforms with tight computational budget, e.g. STM32, RP2040 etc.
 
 
 ## 1. Problem Description and Solution Induction

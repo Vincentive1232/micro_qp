@@ -2,7 +2,7 @@
 name = "micro_qp"
 version = "0.1.0"
 edition = "2024"
-description = "Tiny no_std ADMM QP solver for embedded targets (f32), supports box/general linear constraints OSQP-style."
+description = "Lightweight no_std QP solver for embedded targets (f32), supports box/general linear constraints OSQP-style."
 
 [lib]
 crate-type = ["rlib"]
