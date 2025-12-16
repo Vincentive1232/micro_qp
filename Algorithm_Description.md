@@ -2,9 +2,11 @@
 
 ## 1. Pre-factorization
 - Form the system matrix via `form_p`: 
+
 $$
 P = H + \rho A^\top A + \sigma I
 $$
+
 - Perform in-place Cholesky factorization `cholesky_in_place`.
 - This factor $P = LL^\top$ is reused across iterations unless $\rho$ changes.
 
