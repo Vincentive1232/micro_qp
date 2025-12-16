@@ -14,6 +14,7 @@ $$
 $$
 
 where:
+
 $$
 \begin{aligned}
 H &\succeq 0 &&: \text{Symmetric Positive Definite/Semi Positive Definite} \\
