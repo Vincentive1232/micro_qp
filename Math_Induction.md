@@ -3,6 +3,7 @@
 ## 1. Problem Setup
 
 The standard convex QP that can be solved by `micro_qp` can be written as:
+
 $$
 \begin{aligned}
 \min_{x \in \mathbb{R}^n} \quad & \tfrac{1}{2}x^\top Hx + f^\top x \\
