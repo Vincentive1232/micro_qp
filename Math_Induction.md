@@ -65,9 +65,7 @@ $$
 Introduce a dual variable $y$ for $Ax-z=0$, and add a punishment:  
 
 $$
-\mathcal{L}_\rho(x,z,y) =
-\tfrac{1}{2}x^\top Hx + f^\top x + I_{[l,u]}(z)
-+ y^\top (Ax - z) + \tfrac{\rho}{2}\|Ax - z\|^2
+\mathcal{L}_\rho(x,z,y) = \tfrac{1}{2}x^\top Hx + f^\top x + I_{[l,u]}(z) + y^\top (Ax - z) + \tfrac{\rho}{2}\|Ax - z\|^2
 $$
 
 ---
