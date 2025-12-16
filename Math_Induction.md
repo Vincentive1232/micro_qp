@@ -9,6 +9,7 @@ $$
 \text{s.t.} \quad & l \le Ax \le u
 \end{aligned}
 $$
+
 where:
 $$
 \begin{aligned}
@@ -18,7 +19,9 @@ A &\in \mathbb{R}^{m \times n} &&: \text{Constraints matrix} \\
 l,u &\in \mathbb{R}^m &&: \text{Lower and upper limit（could be } \pm \infty \text{）}
 \end{aligned}
 $$
+
 ---
+
 ## 2. ADMM Formulation
 
 ### Introducing an auxiliary variable 
@@ -30,6 +33,7 @@ Then the original constraints $l \le Ax \le u$ is equivalent to:
 $$
 z \in [l,u], \quad Ax - z = 0
 $$
+
 Therefore, the original problem is rewritten into the classical ADMM form as following, which means that the problem can only contain equal constraints.
 $$
 \begin{aligned}
@@ -37,6 +41,7 @@ $$
 \quad \text{s.t. } & Ax - z = 0
 \end{aligned}
 $$
+
 where $I_{[l,u]}(z)$ is **Indicator Funtion**：  
 $$
 I_{[l,u]}(z)=
