@@ -78,35 +78,42 @@ Idea of ADMM: Alternatively minimizing $\mathcal{L}_\rho$ w.r.t $x$ and $z$. The
 ### (1) x-update  
 
 Fix $(z^k, y^k)$, then we get:
+
 $$
 x^{k+1} = \arg\min_x \;\tfrac{1}{2}x^\top Hx + f^\top x + y^{k\top}(Ax-z^k)+\tfrac{\rho}{2}\|Ax-z^k\|^2
 $$
 
 Expand the norm:
+
 $$
 \phi(x) = \tfrac{1}{2}x^\top Hx + f^\top x + y^{k\top}Ax - y^{k\top}z^k + \tfrac{\rho}{2}\|Ax\|^2 - \rho z^{k\top}Ax + \tfrac{\rho}{2}\|z^k\|^2
 $$
 
 Ignore term $(-y^{k\top}z^k + \tfrac{\rho}{2}\|z^k\|^2)$ since it is irrelevant with $x$, we get:
+
 $$
 \phi(x) = \tfrac{1}{2}x^\top Hx + f^\top x + y^{k\top}Ax + \tfrac{\rho}{2}\|Ax\|^2 - \rho z^{k\top}Ax
 $$
 
 Since we want to formulate the last 3 terms into $\|Ax - (z^k - y^k)\|^2$, consider:
+
 $$
 \|Ax - (z^k - \tfrac{y^k}{\rho})\|^2 = \|Ax\|^2 - 2(z^k - y^k/\rho)^\top Ax + \|z^k - y^k/\rho \|^2
 $$
 
 Multiply by a factor $\tfrac{\rho}{2}$, we get:
+
 $$
 \tfrac{\rho}{2}\|Ax\|^2 - \rho z^{k\top} Ax + y^{k\top} Ax + consts.
 $$
 This exactly matches the last three terms in $\phi(x)$ with some constants irrelevant with $x$. Then we substitude it back to $\phi(x)$ and we can get:
+
 $$
 x^{k+1} = \arg\min_x \;\tfrac{1}{2}x^\top Hx + f^\top x + \tfrac{\rho}{2}\|Ax-(z^k-y^k/\rho)\|^2
 $$
 
 Compute the gradient w.r.t $x$ and finally we arrive at a linear function:
+
 $$
 (H + \rho A^\top A + \sigma I)x^{k+1} = -f + \rho A^\top(z^k - y^k/\rho)
 $$
@@ -118,16 +125,19 @@ Then solve $x^{k+1}$ by using **Cholesky Decomposition**.
 ### (2) z-update  
 
 Fix $(x^{k+1}, y^k)$：  
+
 $$
 z^{k+1} = \arg\min_z \; I_{[l,u]}(z) + \tfrac{\rho}{2}\|z-(Ax^{k+1}+y^k)\|^2
 $$
 
 This equivalent to following **Projection**：  
+
 $$
 z^{k+1} = \Pi_{[l,u]}(Ax^{k+1}+y^k)
 $$
 
 Element-wise:
+
 $$
 z^{k+1}_i = \min(\max(Ax^{k+1}_i+y^k_i,\,l_i),\,u_i)
 $$
@@ -137,6 +147,7 @@ $$
 ### (3) y-update  
 
 Update dual variable：  
+
 $$
 y^{k+1} = y^k + (Ax^{k+1} - z^{k+1})
 $$
