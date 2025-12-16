@@ -12,6 +12,7 @@ $$
 $$
 
 where:
+
 $$
 \begin{aligned}
 H &\succeq 0 &&: \text{Symmetric Positive Definite/Semi Positive Definite} \\
@@ -27,15 +28,19 @@ $$
 
 ### Introducing an auxiliary variable 
 Let
+
 $$
 z = Ax
 $$
+
 Then the original constraints $l \le Ax \le u$ is equivalent to:
+
 $$
 z \in [l,u], \quad Ax - z = 0
 $$
 
 Therefore, the original problem is rewritten into the classical ADMM form as following, which means that the problem can only contain equal constraints.
+
 $$
 \begin{aligned}
 \min_{x,z} \; & \tfrac{1}{2}x^\top Hx + f^\top x + I_{[l,u]}(z) \\
@@ -44,6 +49,7 @@ $$
 $$
 
 where $I_{[l,u]}(z)$ is **Indicator Funtion**：  
+
 $$
 I_{[l,u]}(z)=
 \begin{cases}
